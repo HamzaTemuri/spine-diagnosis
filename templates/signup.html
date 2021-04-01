@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content%}
+
+  	<div class="=container">
+  		{% if error_statement %}
+
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  {{ error_statement }}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endif %}
+    <h1>Signup</h1>
+    <br/><br/>
+
+
+<form action="/signups" method="POST">
+	<div class="row">
+  <div class="col">
+    <input type="text" class="form-control" placeholder="First name" aria-label="First name" name='first_name' value="{{first_name}}">
+  </div>
+  <div class="col">
+    <input type="text" class="form-control" placeholder="Last name" aria-label="Last name" name='last_name' value="{{last_name}}">
+  </div>
+</div>
+<br/>
+  <div class="mb-3">
+    <input type="email" class="form-control" placeholder="Email address" id="exampleInputEmail1" aria-describedby="emailHelp" name='email' value="{{email}}">
+  </div>
+  <div class="mb-3">
+    <input type="password" class="form-control" placeholder="Password" id="exampleInputPassword1" name='password' value="{{password}}">
+  </div>
+  <div class="mb-3">
+    <input type="contact" class="form-control" placeholder="Contact" id="exampleInputContact" name='contact' value="{{contact}}">
+  </div>
+  <div class="col-md-4">
+    <label for="inputState" class="form-label">Gender</label>
+    <select id="inputState" class="form-select" name='gender' value="{{gender}}">
+      <option selected>Choose...</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Signup</button>
+</form>
+
+	</div>
+  <br/>
+
+{% endblock %} 

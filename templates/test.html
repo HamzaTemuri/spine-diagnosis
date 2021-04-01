@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content%}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('static/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Test <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread" style="font-family: verdana"><b>MRI Testing</b></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br/>
+
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+      <div class="container">
+        <div class="row d-flex no-gutters">
+
+          <div class="col d-flex justify-content-center">
+            <div class="row justify-content-start py-5">
+              <div class="col-md-12 heading-section ftco-animate">
+                <span class="subheading" style="font-size: 100%">LUMBAR SPINE DISEASES DIAGNOSING</span>
+                <h2 class="mb-4" style="font-size: 150%">About MRI Testing</h2>
+                <p style="font-size: 110%">Upload the MRI file you want to test from Choose Files button only one at a time. Press Click_to_Test, then wait it might take a while to process the file.</p>
+            </div>
+              </div>
+            <div class="row ftco-counter pb-5" id="section-counter">
+              <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="content">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row d-md-flex justify-content-center">
+          <div class="col-md-6">
+            <div class="wrap-appointment d-md-flex">
+              <div class="col-md-12 bg-primary p-5 heading-section heading-section-white">
+                <h2 class="mb-4 text-dark" style="font-family: bahnschrift">Test Here</h2>
+                <form action="/t" method=POST enctype=multipart/form-data>
+			       <p><input class="text-dark" type=file name="file" autocomplete="off" required>
+                <button type=submit class="btn btn-outline-dark"  style="font-family: verdana" id="start"><b>Click_to_Test</b></button>
+       			</form>
+            <div id="progress_wrapper" class="d-none">
+            <div class="progress">
+              <div id="progress" class="progress-bar progress-bar-striped" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              </div>
+            </div>
+    </section>
+  <body> 
+    <br/>
+
+<script>
+  var start = document.getElementById('start'),
+    reset = document.getElementById('reset'),
+    stop = document.getElementById('stop'),
+    progress_wrapper=document.getElementById('progress_wrapper'),
+    current_progress = 0,
+    step = 0.5; // the smaller this is the slower the progress bar
+
+start.onclick = function(){
+    progress_wrapper.classList.remove("d-none");
+    //var start=document.getElementById("start").disabled = true;
+    interval = setInterval(function() {
+        current_progress += step;
+        progress = Math.round(Math.atan(current_progress) / (Math.PI / 2) * 100 * 1000) / 1000
+        $(".progress-bar")
+            .css("width", progress + "%")
+            .attr("aria-valuenow", progress)
+            .text(progress + "%");
+        if (progress >= 100){
+            clearInterval(interval);
+        }else if(progress >= 70) {
+            step = 0.1
+        }
+    }, 100);
+}
+
+stop.onClick = function(){
+    $(".progress-bar").css("width","100%").attr("aria-valuenow", 100).text("100% Complete");
+    clearInterval(interval); // Important to stop the progress bar from increasing
+}
+/* Stop button */
+reset.onclick = function() {
+    $(".progress-bar").css("width","0%").attr("aria-valuenow", 0);
+    clearInterval(interval);
+}
+
+</script>
+
+
+
+    <br/>
+
+
+{% endblock %}

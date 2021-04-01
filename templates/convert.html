@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content%}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('static/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Convert <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread" style="font-family: verdana"><b>Convert Dicom to JPEG</b></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br/>
+
+<section class="content">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row d-md-flex justify-content-center">
+          <div class="col-md-6">
+            <div class="wrap-appointment d-md-flex">
+              <div class="col-md-12 bg-primary p-5 heading-section heading-section-white">
+                <h2 class="mb-4 text-dark" style="font-family: bahnschrift">Convert Here</h2>
+                <form action="/D2J" method=POST enctype=multipart/form-data>
+			       <p><input class="text-dark" type=file name="files[]" multiple="true" autocomplete="off" required>
+			           <button type=submit class="btn btn-outline-dark"  style="font-family: verdana"><b>Convert</b></button>
+       			</form>
+              </div>
+    </section>
+    <br/>
+
+
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %} Report {% endblock %}
+
+{% block content%}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('static/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Report <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread" style="font-family: verdana"><b>REPORT</b></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <br/>
+
+
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+      <div class="container bg-dark">
+        <div class="row no-gutters">
+        <div class="col d-flex justify-content-center">
+        <div class="card bg-info" style="width: 28rem;height: 28rem;">
+          <div class="card-body">
+            <h5 class="card-title text-dark" style="font-family: verdana"><b>PATIENT'S DATA</b></h5>
+            <p class="card-text text-dark" style="font-family: verdana">ID           = {{I}}</p>
+            <p class="card-text text-dark" style="font-family: verdana">Size         = {{PS}}</p>
+            <p class="card-text text-dark" style="font-family: verdana">Age          = {{A}}</p>
+            <p class="card-text text-dark" style="font-family: verdana">Sex          = {{S}}</p>
+            <p class="card-text text-dark" style="font-family: verdana">Weight       = {{W}}</p>
+            <p class="card-text text-dark" style="font-family: verdana">Examined Part= {{EP}}</p>
+          </div>
+          <div class="card-body">
+            <div class="row d-md-flex justify-content-center">
+                <p><a href="/test" class="btn btn-primary" style="font-family:bahnschrift;font-size: 80% ">Test More</a></p>
+            </div>
+          </div>
+        </div>
+        </div>
+        <div class="col d-flex ">
+        <div class="card" style="width: 18rem;">
+          <img style="height: 38rem;" src="{{url_for('show_file', filename=user_image)}}"align="middle"onerror="this.style.display='none'"/>
+          </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+
+
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+      <div class="container">
+        <div class="row d-flex no-gutters">
+
+          <div class="col d-flex justify-content-center">
+            <div class="row justify-content-start py-5">
+              <div class="col-md-12 heading-section ftco-animate">
+                <span class="subheading" style="font-size: 100%">LUMBAR SPINE DISEASES DIAGNOSING</span>
+                <h2 class="mb-4" style="font-size: 150%">SPD (Spondylolisthesis)</h2>
+                <p style="font-size: 110%">Spondylolisthesis is a spinal condition that causes lower back pain. It occurs when one of your vertebrae, the bones of your spine, slips out of place onto the vertebra below it. Most of the time, nonsurgical treatment can relieve your symptoms.</p>
+              </div>
+              <div class="col-md-12 heading-section ftco-animate">
+                <h2 class="mb-4" style="font-size: 150%">ADB (Anterior Disc Buldging)</h2>
+                <p style="font-size: 110%">Herniation of the contents of the disc into the spinal canal often occurs when the anterior side (stomach side) of the disc is compressed while sitting or bending forward, and the contents (nucleus pulposus) get pressed against the tightly stretched and thinned membrane (annulus fibrosus) on the posterior side (back side) of the disc. </p>
+              </div>
+              <div class="col-md-12 heading-section ftco-animate">
+                <h2 class="mb-4" style="font-size: 150%">SS (Spinal Stenosis)</h2>
+                <p style="font-size: 110%">Spinal stenosis is a narrowing of the spaces within your spine, which can put pressure on the nerves that travel through the spine. Spinal stenosis occurs most often in the lower back and the neck.  </p>
+              </div>
+              <div class="col-md-12 heading-section ftco-animate">
+                <h2 class="mb-4" style="font-size: 150%">EPD (Endplate Defect)</h2>
+                <p style="font-size: 110%">Endplate defects, which are seen adjacent to a healthy disc, are associated with degenerative changes such as Modic changes (MCs), disc degeneration (DD), and Schmorl's nodes.   </p>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<br/>
+
+{% endblock %}

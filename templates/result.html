@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+{% block title %} Result {% endblock %}
+
+{% block content%}
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('static/images/bg_2.jpg');" data-stellar-background-ratio="0.5">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row no-gutters slider-text align-items-end">
+          <div class="col-md-9 ftco-animate pb-5">
+            <p class="breadcrumbs mb-2"><span class="mr-2"><a href="index.html">Home <i class="fa fa-chevron-right"></i></a></span> <span>Test <i class="fa fa-chevron-right"></i></span></p>
+            <h1 class="mb-0 bread" style="font-family: verdana"><b>Results</b></h1>
+          </div>
+        </div>
+      </div>
+    </section>
+<br/>
+<section class="ftco-section ftco-no-pt ftco-no-pb">
+      <div class="container">
+        <div class="row d-flex no-gutters">
+
+          <div class="col d-flex justify-content-center">
+            <div class="row justify-content-start py-5">
+              <div class="col-md-12 heading-section ftco-animate">
+                <span class="subheading" style="font-size: 100%">LUMBAR SPINE DISEASES DIAGNOSING</span>
+                <h2 class="mb-4" style="font-size: 150%">About MRI Testing</h2>
+                <p style="font-size: 110%">Upload the MRI file you want to test from Choose Files button only one at a time. Press Click_to_Test, then wait it might take a while to process the file.</p>
+            </div>
+              </div>
+            <div class="row ftco-counter pb-5" id="section-counter">
+              <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4 d-flex justify-content-center counter-wrap ftco-animate">
+                <div class="block-18">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+<section class="content">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row d-md-flex justify-content-center">
+          <div class="col-md-6">
+            <div class="wrap-appointment d-md-flex">
+              <div class="col-md-12 bg-primary p-5 heading-section heading-section-white">
+                <h2 class="mb-4 text-dark" style="font-family: bahnschrift">Test Here</h2>
+                <form action="/t" method=POST enctype=multipart/form-data>
+             <p><input class="text-dark" type=file name="file" multiple="true" autocomplete="off" required>
+                <button type=submit class="btn btn-outline-dark"  style="font-family: verdana"  ><b>Click_to_Test</b></button>
+            </form>
+              </div>
+    </section>
+  <body> 
+    <br/>
+
+
+
+<div class="col d-flex justify-content-center">
+<div class="card" style="width: 18rem;">
+  <img style="height: 38rem;" src="{{url_for('show_file', filename=user_image)}}"align="middle"onerror="this.style.display='none'"/>
+  <div class="card-body">
+    <h5 class="card-title">Tested file</h5>
+    <p class="card-text">Here is your result for processed MRI.</p>
+  </div>
+  <div class="card-body">
+    <div class="row d-md-flex justify-content-center">
+      <form action="/result_downloads" method=POST enctype=multipart/form-data>
+        <button type=submit class="btn btn-primary" style="margin:5px;font-family: bahnschrift;font-size: 80%">Download</button>
+      </form>
+        <form action="/reportt" method=POST enctype=multipart/form-data>
+          <button type=submit class="btn btn-primary"  style="margin:5px;font-family: bahnschrift;font-size: 80%"><b>View Report</b></button>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+
+
+    <br/>
+
+{% endblock %}
